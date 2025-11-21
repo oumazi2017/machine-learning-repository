@@ -7,12 +7,13 @@ A beautiful and functional calculator application built with Python and tkinter.
 ### Features
 
 - **Basic Arithmetic Operations**: Addition (+), Subtraction (-), Multiplication (*), Division (/)
+- **Parentheses Support**: Use ( and ) for complex expressions
 - **Modern Dark Theme**: Easy on the eyes with a sleek black/gray color scheme
 - **Clear Display**: Large, readable numbers and operations
 - **Additional Functions**:
   - **C** - Clear all
   - **⌫** - Backspace (delete last character)
-  - **%** - Percentage
+  - **( )** - Parentheses for grouping operations
   - **.** - Decimal point
 
 ### Screenshots
@@ -56,17 +57,19 @@ chmod +x calculator.py
 
 1. Click on number buttons (0-9) to enter numbers
 2. Click on operator buttons (+, -, *, /) to select an operation
-3. Click **=** to calculate the result
-4. Click **C** to clear the display
-5. Click **⌫** to delete the last entered character
-6. Click **.** to add a decimal point
+3. Use parentheses **( )** to group operations for complex expressions
+4. Click **=** to calculate the result
+5. Click **C** to clear the display
+6. Click **⌫** to delete the last entered character
+7. Click **.** to add a decimal point
 
 ### Examples
 
 - **Simple Addition**: `5 + 3 = 8`
 - **Multiplication**: `8 * 2 = 16`
-- **Complex Expression**: `10 + 5 * 2 = 20`
+- **Complex Expression**: `(10 + 5) * 2 = 30`
 - **Decimal Numbers**: `3.14 * 2 = 6.28`
+- **Nested Parentheses**: `((5 + 3) * 2) - 4 = 12`
 
 ### License
 
