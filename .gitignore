@@ -20,6 +20,9 @@ wheels/
 .installed.cfg
 *.egg
 
+# py2app
+*.app/
+
 # Virtual Environment
 venv/
 ENV/

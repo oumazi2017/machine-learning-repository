@@ -25,7 +25,11 @@ A beautiful and functional calculator application built with Python and tkinter.
 - Python 3.x
 - tkinter (usually included with Python)
 
-On Ubuntu/Debian systems, if tkinter is not installed:
+**On macOS (MacBook Pro):**
+- Python from [python.org](https://www.python.org/downloads/) includes tkinter by default
+- If using Homebrew Python: `brew install python-tk@3.12` (adjust version as needed)
+
+**On Ubuntu/Debian systems:**
 ```bash
 sudo apt-get install python3-tk
 ```
@@ -42,16 +46,72 @@ cd machine-learning-repository
 
 ### Usage
 
-Run the calculator with:
+**Run directly with Python:**
 ```bash
 python3 calculator.py
 ```
 
-Or make it executable and run directly:
+**On macOS, make it executable:**
 ```bash
 chmod +x calculator.py
 ./calculator.py
 ```
+
+**Create a macOS Desktop Application (.app bundle):**
+
+To convert the calculator to a standalone desktop application on macOS, you can use `py2app`:
+
+1. Install py2app:
+```bash
+pip3 install py2app
+```
+
+2. Create a setup file (`setup.py`) in the same directory:
+```python
+from setuptools import setup
+
+APP = ['calculator.py']
+DATA_FILES = []
+OPTIONS = {
+    'argv_emulation': True,
+    'iconfile': 'app_icon.icns',  # Optional: add your own icon
+    'plist': {
+        'CFBundleName': 'Calculator',
+        'CFBundleDisplayName': 'Simple Calculator',
+        'CFBundleVersion': '1.0.0',
+        'CFBundleShortVersionString': '1.0.0',
+    }
+}
+
+setup(
+    app=APP,
+    data_files=DATA_FILES,
+    options={'py2app': OPTIONS},
+    setup_requires=['py2app'],
+)
+```
+
+3. Build the application:
+```bash
+python3 setup.py py2app
+```
+
+4. The `.app` file will be created in the `dist/` folder. You can:
+   - Double-click `dist/Calculator.app` to run it
+   - Drag it to your Applications folder
+   - Add it to your Dock for quick access
+
+**Alternative: Create an Automator App (Simple Method for macOS):**
+
+1. Open **Automator** (found in Applications)
+2. Choose **Application** as the document type
+3. Search for "Run Shell Script" in the actions
+4. Add this script:
+```bash
+cd /path/to/machine-learning-repository
+/usr/local/bin/python3 calculator.py
+```
+5. Save as "Calculator.app" in your Applications folder
 
 ### How to Use
 
