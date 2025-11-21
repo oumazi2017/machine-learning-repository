@@ -25,7 +25,7 @@ class Calculator:
         self.display_bg = "#2d2d2d"
         self.button_bg = "#3d3d3d"
         self.button_fg = "#ffffff"
-        self.operator_bg = "#ff9500"
+        self.operator_bg = "#0d00ff"
         self.equals_bg = "#ff9500"
         
         # Set background color
@@ -90,19 +90,25 @@ class Calculator:
                     bg = self.button_bg
                     colspan = 1
                 
-                button = tk.Button(
+                # Use Label widgets as clickable buttons for better cross-platform
+                # consistency (macOS can ignore bg/fg on native Button widgets).
+                btn = tk.Label(
                     button_frame,
                     text=button_text,
                     font=button_font,
                     bg=bg,
                     fg=self.button_fg,
-                    borderwidth=0,
-                    command=lambda x=button_text: self.on_button_click(x),
-                    activebackground=bg,
-                    activeforeground=self.button_fg
+                    bd=1,
+                    relief='ridge',
+                    padx=5,
+                    pady=5,
+                    cursor='hand2'
                 )
-                
-                button.grid(
+
+                # Bind left-click to the same handler used by Button
+                btn.bind('<Button-1>', lambda e, x=button_text: self.on_button_click(x))
+
+                btn.grid(
                     row=i,
                     column=j,
                     columnspan=colspan,

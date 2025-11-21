@@ -51,6 +51,16 @@ cd machine-learning-repository
 python3 calculator.py
 ```
 
+### Troubleshooting (white background / missing button text)
+
+If the app window shows a white background or the button labels are not visible (common on some macOS/Python/tkinter combinations), this repository includes an update that uses label-based clickable widgets for consistent coloring across platforms. To run the updated app:
+
+```bash
+python3 calculator.py
+```
+
+If you still see issues, ensure your Python installation includes Tcl/Tk (tkinter). On macOS, install Python from python.org or ensure `python-tk` is available for your distribution.
+
 **On macOS, make it executable:**
 ```bash
 chmod +x calculator.py
